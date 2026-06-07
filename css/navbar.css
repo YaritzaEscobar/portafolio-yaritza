@@ -1,0 +1,274 @@
+:root {
+  --blanco: #f7f6f9;
+  --negro: #262626;
+  --azul_oscuro: #3f618e;
+  --azul_cielo: #8cb7ef;
+  --oliva: #a3bda6;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /*outline: 1px solid red;*/
+}
+
+body {
+  font-family: "Outfit", sans-serif;
+  background: var(--blanco);
+  color: var(--negro);
+}
+
+::selection {
+  background: #3f618e; /* color de fondo al seleccionar */
+  color: #fefeff; /* color del texto seleccionado */
+}
+
+::-moz-selection {
+  background: #3f618e;
+  color: #fefeff;
+}
+
+/* SOBRESCRIBIR ESTILOS PARA SPA */
+.pagina {
+  display: none !important;
+}
+
+.pagina.activa {
+  display: block !important;
+}
+
+/* La sección inicio usa grid, forzamos que herede */
+.pagina.activa.inicio {
+  display: grid !important;
+}
+
+.pagina.activa.sobremi {
+  display: grid !important;
+}
+
+/* Asegurar que el footer siempre se muestre */
+footer {
+  display: block !important;
+}
+
+.pagina.inicio.activa {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  align-items: center;
+  padding: 100px 60px 60px;
+  min-height: 90vh;
+  background: linear-gradient(135deg, #8cb7ef 0%, #b3d4f5 40%, #f7f6f9 100%);
+  overflow: hidden;
+  position: relative;
+}
+
+@keyframes fadePage {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* NAV */
+.navegacion {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 60px;
+  background: #99bef0;
+  font-size: 16px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  box-sizing: border-box;
+}
+
+.nav-right {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.navegacion nav {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.navegacion nav a {
+  margin: 0 6px;
+  text-decoration: none;
+  color: var(--negro);
+  font-weight: 400;
+  padding: 8px 14px;
+  border-radius: 20px;
+  transition: 0.3s ease;
+  white-space: nowrap;
+}
+
+.navegacion nav a:hover {
+  background: rgba(255, 255, 255, 0.35);
+}
+
+.navegacion nav a.active {
+  background: var(--azul_oscuro);
+  color: #fefeff;
+  font-weight: 600;
+}
+
+.logo {
+  width: 150px;
+  height: auto;
+}
+
+/* botón idioma */
+.idioma {
+  font-weight: 600;
+  cursor: pointer;
+  padding: 7px 14px;
+  border-radius: 20px;
+  background: #3b82f6;
+  color: #fff;
+  transition:
+    background 0.2s,
+    color 0.2s;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+}
+.idioma:hover {
+  background: #5f9cff;
+  color: #fff;
+}
+.idioma:active {
+  background: #286ad3;
+  color: #fff;
+}
+
+/* ── HAMBURGUESA ── */
+.hamburguesa {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 38px;
+  height: 38px;
+  padding: 4px;
+  border-radius: 10px;
+  transition: background 0.2s;
+}
+.hamburguesa:hover {
+  background: rgba(255, 255, 255, 0.35);
+}
+.hamburguesa span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--negro);
+  border-radius: 2px;
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
+}
+.hamburguesa.abierto span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.hamburguesa.abierto span:nth-child(2) {
+  opacity: 0;
+}
+.hamburguesa.abierto span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ── MENÚ MÓVIL DESPLEGABLE ── */
+.nav-movil {
+  display: none;
+  flex-direction: column;
+  background: #99bef0;
+  padding: 0 24px;
+  max-height: 0;
+  overflow: hidden;
+  position: fixed;
+  top: 60px; /* altura del nav */
+  width: 100%;
+  z-index: 999;
+  transition:
+    max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+    padding 0.3s;
+  box-sizing: border-box;
+}
+.nav-movil.abierto {
+  max-height: 320px;
+  padding: 10px 24px 20px;
+}
+.nav-movil a {
+  display: block;
+  text-decoration: none;
+  color: var(--negro);
+  font-weight: 400;
+  padding: 11px 16px;
+  border-radius: 12px;
+  font-size: 16px;
+  transition: 0.2s;
+}
+.nav-movil a:hover {
+  background: rgba(255, 255, 255, 0.35);
+}
+.nav-movil a.active {
+  background: var(--azul_oscuro);
+  color: #fefeff;
+  font-weight: 600;
+}
+
+.nav-movil-hr {
+  border: none;
+  border-top: 1px solid rgba(63, 97, 142, 0.2);
+  margin: 8px 0;
+}
+.idioma-movil {
+  width: 100%;
+  text-align: left;
+  padding: 11px 16px;
+  border-radius: 12px;
+  background: rgba(63, 97, 142, 0.12);
+  font-size: 16px;
+}
+
+/* ── BREAKPOINTS ── */
+@media (max-width: 768px) {
+  .navegacion {
+    padding: 14px 24px;
+  }
+  .nav-right > nav,
+  .nav-right > .idioma:not(.idioma-movil) {
+    display: none;
+  }
+  .hamburguesa {
+    display: flex;
+  }
+  .nav-movil {
+    display: flex;
+  }
+  .logo {
+    width: 120px;
+  }
+}
+
+@media (max-width: 480px) {
+  .navegacion {
+    padding: 12px 16px;
+  }
+  .logo {
+    width: 100px;
+  }
+}

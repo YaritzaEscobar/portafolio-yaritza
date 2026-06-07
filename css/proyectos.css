@@ -1,0 +1,76 @@
+/* Contenedor principal de proyectos */
+.proyectos {
+  margin-top: 3rem;
+  padding: 60px 30px; /* Ajusta según tu diseño global */
+}
+
+.proyectos_grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  padding: 20px 30px;
+}
+
+/* Estilo de la Tarjeta */
+.card_proyecto {
+  background-color: #3f618e; /* El azul oscuro de tu imagen */
+  border-radius: 15px;
+  overflow: hidden;
+  text-decoration: none; /* Quita el subrayado del enlace */
+  color: white;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.card_proyecto:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Área de la imagen (el cuadro gris en tu foto) */
+.card_imagen {
+  background-color: #d9d9d9; /* Gris claro de la imagen */
+  margin: 12px; /* Espaciado interno para que se vea el borde azul */
+  height: 200px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.card_imagen img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ajusta la imagen al cuadro */
+}
+
+/* Información del texto */
+.card_info {
+  padding: 0 20px 20px 24px;
+}
+
+.card_info h3 {
+  font-size: 22px;
+  font-weight: bold;
+  margin: 0;
+  font-family: "Outfit", sans-serif;
+}
+
+.card_info p {
+  font-size: 16px;
+  margin: 5px 0 0 0;
+  opacity: 0.9;
+  font-weight: 300;
+}
+
+@media (max-width: 460px) {
+  .proyectos_grid {
+    display: grid;
+    padding: 0;
+    grid-template-columns: repeat(auto-fit), min-content(200px, 1fr);
+  }
+}

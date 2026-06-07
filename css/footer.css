@@ -1,0 +1,129 @@
+.footer-custom {
+  position: relative;
+  overflow: hidden; /* Para que la imagen decorativa no cree scroll */
+  background: linear-gradient(
+    90deg,
+    var(--azul_cielo) 0%,
+    var(--oliva) 50%,
+    var(--azul_cielo) 100%
+  );
+  color: var(--negro);
+  padding: 40px 60px 20px 60px;
+  font-family: "Outfit", sans-serif;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2; /* Por encima de la imagen decorativa */
+}
+
+.logo-footer {
+  margin-left: -10px;
+  width: 260px;
+  height: auto;
+}
+
+/* Alineación de Logo y Redes */
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-logo {
+  font-size: 32px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.footer-socials {
+  display: flex;
+  gap: 15px;
+}
+
+.social-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s;
+}
+
+.social-icon:hover {
+  transform: scale(1.1);
+}
+
+/* Colores de iconos específicos (puedes usar imágenes o SVGs) */
+.github {
+  background-color: black;
+}
+.linkedin {
+  background-color: #0077b5;
+}
+.email {
+  background-color: #ff6b6b;
+}
+
+.social-icon img {
+  width: 24px;
+  height: 24px;
+}
+
+/* Slogan */
+.footer-middle {
+  margin-top: 10px;
+}
+
+.footer-slogan {
+  font-size: 24px;
+  font-style: italic;
+  margin: 0;
+}
+
+/* Línea y Copyright */
+.footer-line {
+  border: 0;
+  border-top: 2px solid var(--negro);
+  margin: 30px 0 10px 0;
+}
+
+.footer-bottom {
+  text-align: center;
+  font-size: 14px;
+}
+
+/* Imagen Decorativa en la esquina derecha */
+.footer-decor-img {
+  position: absolute;
+  right: -20px;
+  bottom: -100px;
+  width: 250px; /* Ajusta según el tamaño de tu imagen */
+  z-index: 1;
+  pointer-events: none; /* Para que no interfiera con clicks */
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .footer-custom {
+    padding: 30px 20px;
+  }
+  .footer-decor-img {
+    width: 150px;
+  }
+}
+
+@media (max-width: 460px) {
+  .footer-top {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+  }
+
+  .footer-socials {
+    margin-top: 10px;
+  }
+}

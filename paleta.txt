@@ -1,0 +1,8 @@
+--blanco:#F7F6F9;
+--negro:#262626;
+--azul_oscuro:#3F618E;
+--azul_cielo:#8CB7EF;
+--oliva:#A3BDA6;
+
+data-es=""
+data-en=""
