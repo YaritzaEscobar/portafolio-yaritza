@@ -227,7 +227,7 @@
           <!-- BOTON DE DESCARGA CV ES/EN -->
           <a id="btnCV" download class="btnDescargarCV">
             <div class="scan"></div>
-            <span class="qa-badge">QA</span>
+            
 
             <!-- ícono descarga (el original) -->
             <svg
@@ -736,10 +736,10 @@
         <div class="contacto-info">
           <h2
             class="contacto-titulo"
-            data-es='Hablemos <span style="color:#3F618E;">juntos</span>'
-            data-en='Let&#39;s talk <span style="color:#3F618E;">together</span>'
+            data-es='Comunícate <span style="color:#3F618E;">conmigo</span>'
+            data-en='Communicate <span style="color:#3F618E;">with me</span>'
           >
-            Hablemos <span>juntos</span>
+            Comunícate <span>conmigo</span>
           </h2>
           <div class="contacto-linea"></div>
           <p
@@ -826,14 +826,10 @@
                 <label for="nombre" data-es="Nombre *" data-en="Name *"
                   >Nombre <span class="req">*</span></label
                 >
-                <input
-                  type="text"
-                  id="nombre"
-                  name="nombre"
-                  placeholder="Tu nombre"
-                  maxlength="60"
-                  autocomplete="given-name"
-                />
+                <input type="text" id="nombre" name="nombre"
+  data-placeholder-es="Tu nombre"
+  data-placeholder-en="Your name"
+  placeholder="Tu nombre" maxlength="60" autocomplete="given-name" />
                 <span class="campo-error" id="err-nombre"
                   >Ingresa tu nombre (solo letras).</span
                 >
@@ -842,14 +838,10 @@
                 <label for="apellido" data-es="Apellido" data-en="Last name"
                   >Apellido</label
                 >
-                <input
-                  type="text"
-                  id="apellido"
-                  name="apellido"
-                  placeholder="Tu apellido"
-                  maxlength="60"
-                  autocomplete="family-name"
-                />
+                <input type="text" id="apellido" name="apellido"
+                data-placeholder-es="Tu apellido"
+                data-placeholder-en="Your last name"
+                placeholder="Tu apellido" maxlength="60" autocomplete="family-name" />
                 <span class="campo-error" id="err-apellido"
                   >Solo se permiten letras y espacios.</span
                 >
@@ -863,14 +855,10 @@
                 data-en="Email *"
                 >Correo electrónico <span class="req">*</span></label
               >
-              <input
-                type="email"
-                id="email"
-                name="email"
-                placeholder="correo@ejemplo.com"
-                maxlength="100"
-                autocomplete="email"
-              />
+              <input type="email" id="email" name="email"
+              data-placeholder-es="correo@ejemplo.com"
+              data-placeholder-en="email@example.com"
+              placeholder="correo@ejemplo.com" maxlength="100" autocomplete="email" />
               <span class="campo-error" id="err-email"
                 >Ingresa un correo válido.</span
               >
@@ -929,12 +917,10 @@
               <label for="mensaje" data-es="Mensaje *" data-en="Message *"
                 >Mensaje <span class="req">*</span></label
               >
-              <textarea
-                id="mensaje"
-                name="mensaje"
-                placeholder="Cuéntame sobre tu proyecto o consulta..."
-                maxlength="800"
-              ></textarea>
+              <textarea id="mensaje" name="mensaje"
+            data-placeholder-es="Cuéntame sobre tu proyecto o consulta..."
+            data-placeholder-en="Tell me about your project or inquiry..."
+            placeholder="Cuéntame sobre tu proyecto o consulta..." maxlength="800"></textarea>
               <div class="char-count"><span id="charCount">0</span> / 800</div>
               <span class="campo-error" id="err-mensaje"
                 >El mensaje debe tener entre 10 y 800 caracteres.</span
@@ -953,10 +939,12 @@
                 con terceros.
               </label>
             </div>
-            <span class="campo-error" id="err-politica"
-              >Debes aceptar la política de privacidad.</span
-            >
-
+             <!-- DESPUÉS -->
+<span class="campo-error" id="err-politica"
+  data-es="Debes aceptar la política de privacidad."
+  data-en="You must accept the privacy policy.">
+  Debes aceptar la política de privacidad.
+</span>
             <button type="submit" class="btn-enviar" id="btnEnviar">
               <svg
                 width="18"

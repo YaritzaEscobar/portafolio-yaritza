@@ -11,6 +11,13 @@ function aplicarIdioma() {
     el.innerHTML = el.getAttribute(`data-${idioma}`);
   });
 
+
+  // ← AGREGA ESTO
+  document.querySelectorAll("[data-placeholder-es]").forEach((el) => {
+    const val = el.getAttribute(`data-placeholder-${idioma}`);
+    if (val) el.placeholder = val;
+  });
+
   // Cambia el CV según idioma
   if (btnCV) {
     btnCV.addEventListener("click", () => {

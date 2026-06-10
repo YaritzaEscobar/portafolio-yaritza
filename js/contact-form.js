@@ -1,4 +1,4 @@
-(function () {
+ (function () {
   const sanitize = (s) => s.replace(/[<>"'`]/g, "").trim();
   const soloLetras = (s) => /^[a-zA-ZáéíóúÁÉÍÓÚñÑüÜ\s'-]{2,60}$/.test(s);
   const emailOk = (s) => /^[^\s@]{1,64}@[^\s@]{1,255}\.[^\s@]{2,}$/.test(s);
@@ -58,36 +58,51 @@
 
   function validateField(k) {
     const v = sanitize(C[k].el.value);
+    const lang = document.documentElement.lang || "es";
+
+    const msgs = {
+      es: {
+        nombreReq: "El nombre es obligatorio.",
+        nombreFmt: "Solo letras y espacios (mín. 2 caracteres).",
+        apellidoFmt: "Solo se permiten letras y espacios.",
+        emailReq: "El correo es obligatorio.",
+        emailFmt: "Formato de correo no válido.",
+        asuntoReq: "Selecciona un asunto.",
+        mensajeMin: "El mensaje debe tener al menos 10 caracteres.",
+      },
+      en: {
+        nombreReq: "Name is required.",
+        nombreFmt: "Letters and spaces only (min. 2 characters).",
+        apellidoFmt: "Only letters and spaces are allowed.",
+        emailReq: "Email is required.",
+        emailFmt: "Invalid email format.",
+        asuntoReq: "Please select a subject.",
+        mensajeMin: "Message must be at least 10 characters.",
+      },
+    };
+
+    const t = msgs[lang] || msgs["es"];
+
     if (k === "nombre") {
-      if (!v) return setError("nombre", "El nombre es obligatorio.");
-      if (!soloLetras(v))
-        return setError(
-          "nombre",
-          "Solo letras y espacios (mín. 2 caracteres).",
-        );
+      if (!v) return setError("nombre", t.nombreReq);
+      if (!soloLetras(v)) return setError("nombre", t.nombreFmt);
       setOk("nombre");
     }
     if (k === "apellido") {
-      if (v && !soloLetras(v))
-        return setError("apellido", "Solo se permiten letras y espacios.");
+      if (v && !soloLetras(v)) return setError("apellido", t.apellidoFmt);
       clearError("apellido");
     }
     if (k === "email") {
-      if (!v) return setError("email", "El correo es obligatorio.");
-      if (!emailOk(v)) return setError("email", "Formato de correo no válido.");
+      if (!v) return setError("email", t.emailReq);
+      if (!emailOk(v)) return setError("email", t.emailFmt);
       setOk("email");
     }
     if (k === "asunto") {
-      if (!C.asunto.el.value)
-        return setError("asunto", "Selecciona un asunto.");
+      if (!C.asunto.el.value) return setError("asunto", t.asuntoReq);
       setOk("asunto");
     }
     if (k === "mensaje") {
-      if (v.length < 10)
-        return setError(
-          "mensaje",
-          "El mensaje debe tener al menos 10 caracteres.",
-        );
+      if (v.length < 10) return setError("mensaje", t.mensajeMin);
       setOk("mensaje");
     }
   }
@@ -119,7 +134,7 @@
       const btn = document.getElementById("btnEnviar");
       const txt = document.getElementById("btnTxt");
       btn.disabled = true;
-      txt.textContent = "Enviando…";
+      txt.textContent = document.documentElement.lang === "en" ? "Sending…" : "Enviando…";
 
       const v_nombre = sanitize(C.nombre.el.value);
       const v_apellido = sanitize(C.apellido.el.value);

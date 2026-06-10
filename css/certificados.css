@@ -96,7 +96,7 @@
 }
 
 .cert-tag::before {
-  content: "🧪";
+  content: "";
 }
 
 .cert-card h3 {
