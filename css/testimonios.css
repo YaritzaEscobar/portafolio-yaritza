@@ -1,0 +1,227 @@
+/* ═══ TESTIMONIOS ═══ */
+.testimonios {
+  background: #f7f6f9;
+  padding: 90px 60px;
+}
+
+.testimonios_cabecera {
+  max-width: 560px;
+  margin: 20px 0 50px 30px; /*t-r-b-l*/
+}
+
+.seccion_eyebrow {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--oliva);
+  margin-bottom: 12px;
+  padding: 4px 12px;
+  border: 1px solid var(--oliva);
+  border-radius: 20px;
+}
+
+.seccion_titulo {
+  font-size: clamp(26px, 3.5vw, 42px);
+  font-weight: 700;
+  color: var(--negro);
+  margin: 0 0 12px;
+  line-height: 1.2;
+}
+
+.seccion_subtitulo {
+  font-size: clamp(14px, 1.5vw, 17px);
+  color: #4b714a;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ─── GRID DE CARDS ─── */
+.testimonios_grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* ─── CARD BASE ─── */
+.testimonio_card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 32px 28px 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 24px;
+  border: 1px solid rgba(140, 183, 239, 0.25);
+  box-shadow: 0 2px 16px rgba(63, 97, 142, 0.07);
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.testimonio_card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 36px rgba(63, 97, 142, 0.14);
+}
+
+/* ─── CARD DESTACADA (centro) ─── */
+.testimonio_card--destacada {
+  background: linear-gradient(
+    145deg,
+    var(--azul_oscuro, #3f618e) 0%,
+    #2a4a72 100%
+  );
+  border-color: transparent;
+  color: white;
+}
+
+.testimonio_card--destacada .testimonio_texto,
+.testimonio_card--destacada .autor_nombre {
+  color: white;
+}
+
+.testimonio_card--destacada .autor_rol {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.testimonio_card--destacada .quote_icon {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.testimonio_card--destacada .autor_avatar {
+  background: rgba(255, 255, 255, 0.18);
+  color: white;
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+/* ─── QUOTE ICON ─── */
+.quote_icon {
+  width: 28px;
+  height: 28px;
+  color: var(--azul_claro, #8cb7ef);
+  margin-bottom: 4px;
+  flex-shrink: 0;
+}
+
+/* ─── CUERPO ─── */
+.testimonio_cuerpo {
+  flex: 1;
+}
+
+.testimonio_texto {
+  font-size: clamp(14px, 1.4vw, 16px);
+  line-height: 1.75;
+  color: #444;
+  margin: 8px 0 0;
+}
+
+/* ─── AUTOR ─── */
+.testimonio_autor {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(140, 183, 239, 0.2);
+}
+
+.testimonio_card--destacada .testimonio_autor {
+  border-top-color: rgba(255, 255, 255, 0.15);
+}
+
+.autor_avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(140, 183, 239, 0.18);
+  border: 2px solid rgba(140, 183, 239, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--azul_oscuro, #3f618e);
+  flex-shrink: 0;
+  letter-spacing: 0.03em;
+}
+
+.autor_info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.autor_nombre {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--negro);
+}
+
+.autor_rol {
+  font-size: 12px;
+  color: #888;
+  line-height: 1.4;
+}
+
+.testimonio_pdf {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-left: auto;
+  padding: 5px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--azul_oscuro, #3f618e);
+  background: rgba(140, 183, 239, 0.12);
+  border: 1px solid rgba(140, 183, 239, 0.35);
+  text-decoration: none;
+  transition:
+    background 0.2s,
+    transform 0.2s;
+  flex-shrink: 0;
+}
+
+.testimonio_pdf:hover {
+  background: rgba(140, 183, 239, 0.25);
+  transform: translateY(-1px);
+}
+
+.testimonio_card--destacada .testimonio_pdf {
+  color: white;
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.testimonio_card--destacada .testimonio_pdf:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* ─── RESPONSIVO ─── */
+@media (max-width: 900px) {
+  .testimonios {
+    padding: 70px 32px;
+  }
+
+  .testimonios_grid {
+    grid-template-columns: 1fr;
+    max-width: 520px;
+  }
+
+  /* En móvil la card destacada va al centro visualmente (2da de 3) */
+  .testimonio_card--destacada {
+    order: -1;
+  }
+}
+
+@media (max-width: 480px) {
+  .testimonios {
+    padding: 60px 20px;
+  }
+
+  .testimonio_card {
+    padding: 24px 20px 20px;
+  }
+}
