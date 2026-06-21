@@ -1,11 +1,14 @@
 const btn = document.getElementById("btnIdioma");
+const btnMovil = document.getElementById("btnIdiomaMovil");
 const btnCV = document.getElementById("btnCV");
 
 let idioma = localStorage.getItem("idioma") || "es";
 
+
 function aplicarIdioma() {
   document.documentElement.lang = idioma;
   btn.textContent = idioma.toUpperCase();
+   if (btnMovil) btnMovil.textContent = idioma.toUpperCase();
 
   document.querySelectorAll("[data-es]").forEach((el) => {
     el.innerHTML = el.getAttribute(`data-${idioma}`);
